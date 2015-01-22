@@ -2122,3 +2122,81 @@ label.error {
 .cart__remove {
   display: block;
 }
+
+$large-text: 5.5em;
+$medium-text: 4.5em;
+$small-text: 3.5em;
+$xsmall-text: 2.5em;
+
+.product-postings {
+  margin-right: 50px;
+  margin-left: 50px;
+}
+
+.product-postings .product-post--left-text {
+  padding-top: 50px;
+}
+
+.product-postings .product-post--right-text {
+  padding-top: 50px;
+}
+
+.product-post--left-text, .product-post--right-text {
+  position: relative;
+}
+
+.product-post__image {
+  text-align: center;
+}
+
+.product-post--left-text > .product-post__image {
+  float: right;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.product-post--left-text > .product-post__image > img {
+  float: right;
+}
+
+.product-post--left-text > .product-post__text-container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  margin-left: 30px;
+}
+
+.product-post--right-text > .product-post__text-container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  margin-right: 30px;
+}
+
+.product-post__text--large {
+  line-height: normal;
+  font-size: $large-text;
+}
+
+.product-post__text--medium {
+  line-height: normal;
+  font-size: $medium-text;
+}
+
+.product-post__text--small {
+  line-height: normal;
+  font-size: $small-text;
+}
+
+.product-post__text--xsmall {
+  line-height: normal;
+  font-size: $xsmall-text;
+}
+
+.product-post__buy-now {
+  font-size: 20px;
+  text-align: center;
+  margin-left: 30px;
+}

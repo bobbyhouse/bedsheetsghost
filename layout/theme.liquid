@@ -19,9 +19,6 @@
   {{ page_title }}{% if current_tags %}{% assign meta_tags = current_tags | join: ', ' %} &ndash; {{ 'general.meta.tags' | t: tags: meta_tags }}{% endif %}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless %}
   </title>
 
-  {% if page_description %}
-  <meta name="description" content="{{ page_description | escape }}">
-  {% endif %}
 
   <!-- Product meta ================================================== -->
   {% include 'open-graph-tags' %}
@@ -29,6 +26,7 @@
 
   <!-- Helpers ================================================== -->
   <link rel="canonical" href="{{ canonical_url }}">
+  <link href='http://fonts.googleapis.com/css?family=Cedarville+Cursive' rel='stylesheet' type='text/css'
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="{{ settings.color_primary }}">
 
@@ -69,31 +67,7 @@
   <header class="site-header" role="banner">
     <div class="wrapper">
 
-      <div class="grid--full">
-        <div class="grid__item large--one-half">
-          {% comment %}
-            Use the uploaded logo from theme settings if enabled.
-            Site name gets precedence with H1 tag on homepage, div on other pages.
-          {% endcomment %}
-          {% if template == 'index' %}
-            <h1 class="site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
-          {% else %}
-            <div class="h1 site-header__logo large--left" itemscope itemtype="http://schema.org/Organization">
-          {% endif %}
-            {% if settings.logo_use_image %}
-              <a href="/" itemprop="url">
-                <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
-              </a>
-            {% else %}
-              <a href="/" itemprop="url">{{ shop.name }}</a>
-            {% endif %}
-          {% if template == 'index' %}
-            </h1>
-          {% else %}
-            </div>
-          {% endif %}
-        </div>
-        <div class="grid__item large--one-half text-center large--text-right">
+        <div class="grid__item text-center large--text-right">
           {% comment %}
             Show number of items in the cart and total cost in the /cart link
 
@@ -140,28 +114,13 @@
     </div>
   </header>
 
-  <nav class="nav-bar" role="navigation">
-    <div class="wrapper">
-      <div class="grid">
-        <div class="grid__item large--two-thirds">
-          {% include 'site-nav' %}
-        </div>
-        <div class="grid__item large--one-third">
-          <div class="nav-search">
-            {% include 'search-bar' %}
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-
+  
   <main class="wrapper main-content" role="main">
-
+    {% if template == "index" %}
+      <a href="http://udsrvbest.com">{{ 'you-deserve-the-best.svg' | asset_url | img_tag }}</a>
+    {% endif %}
     {{ content_for_layout }}
-
   </main>
-
-  {% include 'footer' %}
 
   {% comment %}
     Helper scripts that you can extend as needed.
