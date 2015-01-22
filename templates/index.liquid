@@ -3,7 +3,7 @@
 
   {% for collection in collections reversed %}
 
-      <div class="product-post--{%cycle 'left-text', 'right-text' %} grid__item">
+    <div id="{{collection.title}}" class="product-post--{%cycle 'left-text', 'right-text' %} grid__item">
 
         <div class="product-post__image grid__item large--two-thirds">
           {{ collection.image.src | img_url: 'grande' | img_tag }}
